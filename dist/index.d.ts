@@ -1,8 +1,14 @@
 /// <reference types="react" />
 import * as React from 'react';
-export declare type IProps = {};
+export declare type IProps = {
+    captchaDomain: string;
+    onReceiveToken: (captchaToken: string) => void;
+    siteKey: string;
+};
 export declare type IState = {};
 declare class RecaptchaV3 extends React.PureComponent<IProps, IState> {
+    private _captchaRef;
+    refreshToken: () => void;
     render(): JSX.Element;
 }
 export default RecaptchaV3;

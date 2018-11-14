@@ -20,7 +20,7 @@
     "url": "https://github.com/Haskkor/react-native-recaptchav3/issues"
   },
   "homepage": "https://github.com/Haskkor/react-native-recaptchav3#readme",
-  "dependencies": {
+  "devDependencies": {
     "@types/react": "^16.7.3",
     "@types/react-native": "^0.57.7",
     "react": "^16.6.2",
