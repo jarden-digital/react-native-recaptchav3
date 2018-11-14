@@ -1,3 +1,5 @@
+**NOT TESTED YET. DO NOT USE. WIP.**
+
 # react-native-recaptchav3
 
 [![npm](https://img.shields.io/npm/v/react-native-recaptchav3.svg)](https://www.npmjs.com/package/react-native-recaptchav3) [![npm](https://img.shields.io/npm/dt/react-native-recaptchav3.svg)](https://www.npmjs.com/package/react-native-recaptchav3)
