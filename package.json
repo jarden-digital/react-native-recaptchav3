@@ -1,5 +1,5 @@
 {
-  "name": "react-native-recaptchav3",
+  "name": "@haskkor/react-native-recaptchav3",
   "version": "0.0.1",
   "description": "React native component to use the invisible recaptcha v3 from Google",
   "main": "dist/index.js",
