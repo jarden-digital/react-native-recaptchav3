@@ -20,7 +20,7 @@ yarn add @haskkor/react-native-recaptchav3
 
 ## Demo
 
-![automatic](https://user-images.githubusercontent.com/10620919/48577263-9e3f5500-e97b-11e8-9038-cf1486470977.gif) ![retrybutton](https://user-images.githubusercontent.com/10620919/48577286-aac3ad80-e97b-11e8-8cdc-cd93c9baf182.gif)
+![automatic](https://user-images.githubusercontent.com/10620919/48578194-e1022c80-e97d-11e8-8bb9-6e96a8a25aec.gif)   ![retrybutton](https://user-images.githubusercontent.com/10620919/48578212-ed868500-e97d-11e8-95ab-1d5ec0280b8f.gif)
 
 ## Usage
 
