@@ -4,16 +4,18 @@
 
 [![npm](https://img.shields.io/npm/v/react-native-recaptchav3.svg)](https://www.npmjs.com/package/react-native-recaptchav3) [![npm](https://img.shields.io/npm/dt/react-native-recaptchav3.svg)](https://www.npmjs.com/package/react-native-recaptchav3)
 
-_React native component to use the invisible ReCaptcha v3 from Google_
+_React native component to use the invisible reCAPTCHA v3 from Google_
+
+https://www.google.com/recaptcha/intro/v3.html
 
 ## Installation
 
 ```
-npm install --save react-native-recaptchav3
+npm install --save @haskkor/react-native-recaptchav3
 ```
 or
 ```
-yarn add react-native-recaptchav3
+yarn add @haskkor/react-native-recaptchav3
 ```
 
 ## Demo
@@ -22,18 +24,33 @@ yarn add react-native-recaptchav3
 
 ## Usage
 
+Automatically get a captcha token:
+
 ```
-import PINCode from '@haskkor/react-native-pincode'
-<PINCode status={'choose'}/>
+import ReCaptchaV3 from '@haskkor/react-native-recaptchav3'
+
+<RecaptchaV3
+  ref={(ref: RecaptchaV3) => this._captchaRef = ref}
+  captchaDomain={'https://yourowndomainname.co.nz'}
+  siteKey={'yourownsitekey'}
+  onReceiveToken={(token: string) => Alert.alert('CAPTCHA', token)}/>
+```
+
+One could also use a trigger to request a new token using the reference of the component:
+
+```
+<TouchableOpacity onPress={() => this._captchaRef.refreshToken()}>
+  <Text>Retry</Text>
+</TouchableOpacity>
 ```
 
 ## Options
 
 | Key | Description | Default | Required | Type |
 |---|---|---|---|---|
-|**`buttonComponentLockedPage`**|Button component to be used at the bottom of the page on the locked application page|TouchableOpacity exit button killing the application|`false`|`any`|
-|**`buttonDeleteComponent`**|Button component to be used at the bottom right of the PIN panel to delete a previous entry|TouchableHighlight button with a `delete` text and the `backspace` material icon|`false`|`any`|
-|**`buttonDeleteText`**|Text of the of the button used to delete a previous entry on the PIN panel|`delete`|`false`|`string`|
+|**`captchaDomain`**|Your url registered with Google reCAPTCHA|`None`|`true`|`string`|
+|**`onReceiveToken`**|The callback used to get the captcha token from the component|`None`|`true`|`(captchaToken: string) => void`|
+|**`siteKey`**|The site key provided by Google reCAPTCHA|`None`|`true`|`string`|
 
 ## [Changelog](https://github.com/Haskkor/react-native-recaptchav3/blob/master/CHANGELOG.md)
 

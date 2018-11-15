@@ -10,7 +10,7 @@ export type IProps = {
 export type IState = {}
 
 
-class RecaptchaV3 extends React.PureComponent<IProps, IState> {
+class ReCaptchaV3 extends React.PureComponent<IProps, IState> {
 
   private _captchaRef: any
 
@@ -31,4 +31,4 @@ class RecaptchaV3 extends React.PureComponent<IProps, IState> {
   }
 }
 
-export default RecaptchaV3
+export default ReCaptchaV3
