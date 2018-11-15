@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const ReCaptchaComponent_1 = require("./src/ReCaptchaComponent");
-class RecaptchaV3 extends React.PureComponent {
+class ReCaptchaV3 extends React.PureComponent {
     constructor() {
         super(...arguments);
         this.refreshToken = () => {
@@ -15,4 +15,4 @@ class RecaptchaV3 extends React.PureComponent {
             } }));
     }
 }
-exports.default = RecaptchaV3;
+exports.default = ReCaptchaV3;

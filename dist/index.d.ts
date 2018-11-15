@@ -6,9 +6,9 @@ export declare type IProps = {
     siteKey: string;
 };
 export declare type IState = {};
-declare class RecaptchaV3 extends React.PureComponent<IProps, IState> {
+declare class ReCaptchaV3 extends React.PureComponent<IProps, IState> {
     private _captchaRef;
     refreshToken: () => void;
     render(): JSX.Element;
 }
-export default RecaptchaV3;
+export default ReCaptchaV3;

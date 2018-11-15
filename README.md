@@ -2,7 +2,7 @@
 
 # react-native-recaptchav3
 
-[![npm](https://img.shields.io/npm/v/react-native-recaptchav3.svg)](https://www.npmjs.com/package/react-native-recaptchav3) [![npm](https://img.shields.io/npm/dt/react-native-recaptchav3.svg)](https://www.npmjs.com/package/react-native-recaptchav3)
+[![npm](https://img.shields.io/npm/v/@haskkor/react-native-recaptchav3.svg)](https://www.npmjs.com/package/@haskkor/react-native-recaptchav3) [![npm](https://img.shields.io/npm/dt/@haskkor/react-native-recaptchav3.svg)](https://www.npmjs.com/package/@haskkor/react-native-recaptchav3)
 
 _React native component to use the invisible reCAPTCHA v3 from Google_
 
@@ -20,7 +20,7 @@ yarn add @haskkor/react-native-recaptchav3
 
 ## Demo
 
-![show-captcha]()
+![automatic](https://user-images.githubusercontent.com/10620919/48577263-9e3f5500-e97b-11e8-9038-cf1486470977.gif) ![retrybutton](https://user-images.githubusercontent.com/10620919/48577286-aac3ad80-e97b-11e8-8cdc-cd93c9baf182.gif)
 
 ## Usage
 
@@ -29,8 +29,7 @@ Automatically get a captcha token:
 ```
 import ReCaptchaV3 from '@haskkor/react-native-recaptchav3'
 
-<RecaptchaV3
-  ref={(ref: RecaptchaV3) => this._captchaRef = ref}
+<ReCaptchaV3
   captchaDomain={'https://yourowndomainname.co.nz'}
   siteKey={'yourownsitekey'}
   onReceiveToken={(token: string) => Alert.alert('CAPTCHA', token)}/>
@@ -39,6 +38,14 @@ import ReCaptchaV3 from '@haskkor/react-native-recaptchav3'
 One could also use a trigger to request a new token using the reference of the component:
 
 ```
+import ReCaptchaV3 from '@haskkor/react-native-recaptchav3'
+
+<ReCaptchaV3
+  ref={(ref: RecaptchaV3) => this._captchaRef = ref}
+  captchaDomain={'https://yourowndomainname.co.nz'}
+  siteKey={'yourownsitekey'}
+  onReceiveToken={(token: string) => Alert.alert('CAPTCHA', token)}/>
+
 <TouchableOpacity onPress={() => this._captchaRef.refreshToken()}>
   <Text>Retry</Text>
 </TouchableOpacity>
