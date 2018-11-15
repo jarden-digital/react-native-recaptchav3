@@ -1,4 +1,3 @@
-**NOT TESTED YET. DO NOT USE. WIP.**
 
 # react-native-recaptchav3
 
