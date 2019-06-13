@@ -53,6 +53,7 @@ class ReCaptchaComponent extends React.PureComponent<IProps> {
           this._webViewRef = ref
         }}
         javaScriptEnabled
+        originWhitelist={['about:blank']}
         automaticallyAdjustContentInsets
         mixedContentMode={'always'}
         injectedJavaScript={patchPostMessageJsCode}
