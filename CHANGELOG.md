@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [1.1.0] - 2019-09-22
+### Changed
+- Using React Native Community WebView instead of the deprecated one.
+
+
 ## [1.0.4] - 2019-06-13
 ### Fixed
 - Added the whitelist for 'about:blank' https://github.com/react-native-community/react-native-webview/issues/26.

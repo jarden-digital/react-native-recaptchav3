@@ -17,6 +17,8 @@ or
 yarn add @haskkor/react-native-recaptchav3
 ```
 
+**Note:** React Native Community Webview requires you to link the native dependencies (https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md) 
+
 ## Demo
 
 ![automatic](https://user-images.githubusercontent.com/10620919/48578194-e1022c80-e97d-11e8-8bb9-6e96a8a25aec.gif)   ![retrybutton](https://user-images.githubusercontent.com/10620919/48578212-ed868500-e97d-11e8-95ab-1d5ec0280b8f.gif)

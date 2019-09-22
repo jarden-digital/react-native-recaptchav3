@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("./constants");
 const React = require("react");
 const react_native_1 = require("react-native");
+const react_native_webview_1 = require("react-native-webview");
 const patchPostMessageJsCode = `(${String(function () {
     const originalPostMessage = window.postMessage;
     const patchedPostMessage = (message, targetOrigin, transfer) => {
@@ -40,9 +41,9 @@ class ReCaptchaComponent extends React.PureComponent {
     }
     render() {
         return React.createElement(react_native_1.View, { style: { flex: 0.0001, width: 0, height: 0 } },
-            React.createElement(react_native_1.WebView, { ref: (ref) => {
+            React.createElement(react_native_webview_1.WebView, { ref: (ref) => {
                     this._webViewRef = ref;
-                }, javaScriptEnabled: true, automaticallyAdjustContentInsets: true, mixedContentMode: 'always', injectedJavaScript: patchPostMessageJsCode, source: {
+                }, javaScriptEnabled: true, originWhitelist: ['about:blank'], automaticallyAdjustContentInsets: true, mixedContentMode: 'always', injectedJavaScript: patchPostMessageJsCode, source: {
                     html: getInvisibleRecaptchaContent(this.props.siteKey),
                     baseUrl: this.props.captchaDomain
                 }, onMessage: (e) => {
