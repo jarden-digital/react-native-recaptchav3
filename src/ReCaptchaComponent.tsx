@@ -22,8 +22,7 @@ const patchPostMessageJsCode = `(${String(function () {
 const getExecutionFunction = (siteKey: string) => {
   return `window.grecaptcha.execute('${siteKey}', { action: 'login' }).then(
     function(args) {
-      // alert(args);
-      window.postMessage(args);
+      window.ReactNativeWebView.postMessage(args);
     }
   )`
 }
@@ -54,7 +53,7 @@ class ReCaptchaComponent extends React.PureComponent<IProps> {
           this._webViewRef = ref
         }}
         javaScriptEnabled
-        originWhitelist={['about:blank']}
+        originWhitelist={['*']}
         automaticallyAdjustContentInsets
         mixedContentMode={'always'}
         injectedJavaScript={patchPostMessageJsCode}
