@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [1.1.1] - 2020-03-09
+### Fixed
+- Fixed the onMessage function not being triggered anymore ([Issue 5](https://github.com/jarden-digital/react-native-recaptchav3/issues/5))
+
+
 ## [1.1.0] - 2019-09-22
 ### Changed
 - Using React Native Community WebView instead of the deprecated one.
