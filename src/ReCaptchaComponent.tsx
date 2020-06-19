@@ -8,6 +8,7 @@ type IProps = {
   captchaDomain: string
   onReceiveToken: (captchaToken: string) => void
   siteKey: string
+  action: string
 }
 
 const patchPostMessageJsCode = `(${String(function () {
@@ -19,18 +20,18 @@ const patchPostMessageJsCode = `(${String(function () {
   window.postMessage = patchedPostMessage
 })})();`
 
-const getExecutionFunction = (siteKey: string) => {
-  return `window.grecaptcha.execute('${siteKey}', { action: 'login' }).then(
+const getExecutionFunction = (siteKey: string, action: string) => {
+  return `window.grecaptcha.execute('${siteKey}', { action: '${action}' }).then(
     function(args) {
       window.ReactNativeWebView.postMessage(args);
     }
   )`
 }
 
-const getInvisibleRecaptchaContent = (siteKey: string) => {
+const getInvisibleRecaptchaContent = (siteKey: string, action: string) => {
   return `<!DOCTYPE html><html><head>
     <script src="https://www.google.com/recaptcha/api.js?render=${siteKey}"></script>
-    <script>window.grecaptcha.ready(function() { ${getExecutionFunction(siteKey)} });</script>
+    <script>window.grecaptcha.ready(function() { ${getExecutionFunction(siteKey, action)} });</script>
     </head></html>`
 }
 
@@ -40,7 +41,7 @@ class ReCaptchaComponent extends React.PureComponent<IProps> {
 
   public refreshToken() {
     if (platform.isIOS && this._webViewRef) {
-      this._webViewRef.injectJavaScript(getExecutionFunction(this.props.siteKey))
+      this._webViewRef.injectJavaScript(getExecutionFunction(this.props.siteKey, this.props.action))
     } else if (platform.isAndroid && this._webViewRef) {
       this._webViewRef.reload()
     }
@@ -58,7 +59,7 @@ class ReCaptchaComponent extends React.PureComponent<IProps> {
         mixedContentMode={'always'}
         injectedJavaScript={patchPostMessageJsCode}
         source={{
-          html: getInvisibleRecaptchaContent(this.props.siteKey),
+          html: getInvisibleRecaptchaContent(this.props.siteKey, this.props.action),
           baseUrl: this.props.captchaDomain
         }}
         onMessage={(e: any) => {

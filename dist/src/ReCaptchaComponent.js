@@ -12,17 +12,17 @@ const patchPostMessageJsCode = `(${String(function () {
     patchedPostMessage.toString = () => String(Object.hasOwnProperty).replace('hasOwnProperty', 'postMessage');
     window.postMessage = patchedPostMessage;
 })})();`;
-const getExecutionFunction = (siteKey) => {
-    return `window.grecaptcha.execute('${siteKey}', { action: 'login' }).then(
+const getExecutionFunction = (siteKey, action) => {
+    return `window.grecaptcha.execute('${siteKey}', { action: '${action}' }).then(
     function(args) {
       window.ReactNativeWebView.postMessage(args);
     }
   )`;
 };
-const getInvisibleRecaptchaContent = (siteKey) => {
+const getInvisibleRecaptchaContent = (siteKey, action) => {
     return `<!DOCTYPE html><html><head>
     <script src="https://www.google.com/recaptcha/api.js?render=${siteKey}"></script>
-    <script>window.grecaptcha.ready(function() { ${getExecutionFunction(siteKey)} });</script>
+    <script>window.grecaptcha.ready(function() { ${getExecutionFunction(siteKey, action)} });</script>
     </head></html>`;
 };
 class ReCaptchaComponent extends React.PureComponent {
@@ -32,7 +32,7 @@ class ReCaptchaComponent extends React.PureComponent {
     }
     refreshToken() {
         if (constants_1.platform.isIOS && this._webViewRef) {
-            this._webViewRef.injectJavaScript(getExecutionFunction(this.props.siteKey));
+            this._webViewRef.injectJavaScript(getExecutionFunction(this.props.siteKey, this.props.action));
         }
         else if (constants_1.platform.isAndroid && this._webViewRef) {
             this._webViewRef.reload();
@@ -43,7 +43,7 @@ class ReCaptchaComponent extends React.PureComponent {
             React.createElement(react_native_webview_1.WebView, { ref: (ref) => {
                     this._webViewRef = ref;
                 }, javaScriptEnabled: true, originWhitelist: ['*'], automaticallyAdjustContentInsets: true, mixedContentMode: 'always', injectedJavaScript: patchPostMessageJsCode, source: {
-                    html: getInvisibleRecaptchaContent(this.props.siteKey),
+                    html: getInvisibleRecaptchaContent(this.props.siteKey, this.props.action),
                     baseUrl: this.props.captchaDomain
                 }, onMessage: (e) => {
                     this.props.onReceiveToken(e.nativeEvent.data);
