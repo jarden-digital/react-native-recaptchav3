@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+## [1.2.1] - 2020-06-19
+### Merged
+- Merged [johnlim5847](https://github.com/johnlim5847) PR ([add action props](https://github.com/jarden-digital/react-native-recaptchav3/pull/7/))
+
+
 ## [1.2.0] - 2020-03-23
 ### Bump
 - Bump react-native-webview to 9.0.1
