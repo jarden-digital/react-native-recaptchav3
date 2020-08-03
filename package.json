@@ -1,7 +1,7 @@
 {
-  "name": "@haskkor/react-native-recaptchav3",
-  "version": "1.2.1",
-  "description": "React native component to use the invisible recaptcha v3 from Google",
+  "name": "@humanoids/react-native-recaptcha",
+  "version": "1.2.2",
+  "description": "React native component to use the invisible recaptcha v3 from Google. Forked from @haskkor/react-native-recaptchav3.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -12,14 +12,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Haskkor/react-native-recaptchav3.git"
+    "url": "git+https://github.com/humanoidsbv/react-native-recaptcha.git"
   },
   "author": "Jeremy Farnault <farnaultjeremy@gmail.com>",
+  "contributors": [
+    "Robbin Habermehl <robbin.habermehl@humanoids.nl>",
+    "Sabine Westerdijk <sabine.westerdijk@humanoids.nl>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Haskkor/react-native-recaptchav3/issues"
+    "url": "https://github.com/humanoidsbv/react-native-recaptcha/issues"
   },
-  "homepage": "https://github.com/Haskkor/react-native-recaptchav3#readme",
+  "homepage": "https://github.com/humanoidsbv/react-native-recaptcha#readme",
   "devDependencies": {
     "@types/react": "^16.7.3",
     "@types/react-native": "^0.57.7",

@@ -1,3 +1,14 @@
+# @humanoids/react-native-recaptcha
+
+This package is forked from `@haskkor/react-native-recaptchav3`. Refreshing the reCAPTCHA v3 token caused the following error:
+
+```
+Error evaluating injectedJavaScript: This is possibly due to an unsupported return type. Try adding true to the end of your injectedJavaScript string.
+```
+
+Also, `originWhitelist` needed to be specified. Fixes for these two issues have been applied.
+
+Below you will find the original README.
 
 # react-native-recaptchav3
 
@@ -12,16 +23,18 @@ https://www.google.com/recaptcha/intro/v3.html
 ```
 npm install --save @haskkor/react-native-recaptchav3
 ```
+
 or
+
 ```
 yarn add @haskkor/react-native-recaptchav3
 ```
 
-**Note:** React Native Community Webview requires you to link the native dependencies (https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md) 
+**Note:** React Native Community Webview requires you to link the native dependencies (https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md)
 
 ## Demo
 
-![automatic](https://user-images.githubusercontent.com/10620919/48578194-e1022c80-e97d-11e8-8bb9-6e96a8a25aec.gif)   ![retrybutton](https://user-images.githubusercontent.com/10620919/48578212-ed868500-e97d-11e8-95ab-1d5ec0280b8f.gif)
+![automatic](https://user-images.githubusercontent.com/10620919/48578194-e1022c80-e97d-11e8-8bb9-6e96a8a25aec.gif) ![retrybutton](https://user-images.githubusercontent.com/10620919/48578212-ed868500-e97d-11e8-95ab-1d5ec0280b8f.gif)
 
 ## Usage
 
@@ -54,11 +67,11 @@ import ReCaptchaV3 from '@haskkor/react-native-recaptchav3'
 
 ## Options
 
-| Key | Description | Default | Required | Type |
-|---|---|---|---|---|
-|**`captchaDomain`**|Your url registered with Google reCAPTCHA|`None`|`true`|`string`|
-|**`onReceiveToken`**|The callback used to get the captcha token from the component|`None`|`true`|`(captchaToken: string) => void`|
-|**`siteKey`**|The site key provided by Google reCAPTCHA|`None`|`true`|`string`|
+| Key                  | Description                                                   | Default | Required | Type                             |
+| -------------------- | ------------------------------------------------------------- | ------- | -------- | -------------------------------- |
+| **`captchaDomain`**  | Your url registered with Google reCAPTCHA                     | `None`  | `true`   | `string`                         |
+| **`onReceiveToken`** | The callback used to get the captcha token from the component | `None`  | `true`   | `(captchaToken: string) => void` |
+| **`siteKey`**        | The site key provided by Google reCAPTCHA                     | `None`  | `true`   | `string`                         |
 
 ## [Changelog](https://github.com/Haskkor/react-native-recaptchav3/blob/master/CHANGELOG.md)
 
