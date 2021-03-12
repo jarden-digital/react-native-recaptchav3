@@ -13,7 +13,8 @@ const patchPostMessageJsCode = `(${String(function () {
     window.postMessage = patchedPostMessage;
 })})();`;
 const getExecutionFunction = (siteKey, action) => {
-    return `window.grecaptcha.execute('${siteKey}', { action: '${action}' }).then(
+    const actionParam = action ? `{ action: '${action}' }` : '{}';
+    return `window.grecaptcha.execute('${siteKey}', ${actionParam}).then(
     function(args) {
       window.ReactNativeWebView.postMessage(args);
     }

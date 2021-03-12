@@ -5,7 +5,7 @@ export type IProps = {
   captchaDomain: string
   onReceiveToken: (captchaToken: string) => void
   siteKey: string
-  action: string
+  action?: string
 }
 
 export type IState = {}

@@ -8,7 +8,7 @@ type IProps = {
   captchaDomain: string
   onReceiveToken: (captchaToken: string) => void
   siteKey: string
-  action: string
+  action?: string
 }
 
 const patchPostMessageJsCode = `(${String(function () {
@@ -20,15 +20,16 @@ const patchPostMessageJsCode = `(${String(function () {
   window.postMessage = patchedPostMessage
 })})();`
 
-const getExecutionFunction = (siteKey: string, action: string) => {
-  return `window.grecaptcha.execute('${siteKey}', { action: '${action}' }).then(
+const getExecutionFunction = (siteKey: string, action?: string) => {
+	const actionParam = action ? `{ action: '${action}' }` : '{}';
+  return `window.grecaptcha.execute('${siteKey}', ${actionParam}).then(
     function(args) {
       window.ReactNativeWebView.postMessage(args);
     }
   )`
 }
 
-const getInvisibleRecaptchaContent = (siteKey: string, action: string) => {
+const getInvisibleRecaptchaContent = (siteKey: string, action?: string) => {
   return `<!DOCTYPE html><html><head>
     <script src="https://www.google.com/recaptcha/api.js?render=${siteKey}"></script>
     <script>window.grecaptcha.ready(function() { ${getExecutionFunction(siteKey, action)} });</script>
