@@ -10,10 +10,12 @@ https://www.google.com/recaptcha/intro/v3.html
 ## Installation
 
 ```
+npm install --save react-native-webview
 npm install --save @haskkor/react-native-recaptchav3
 ```
 or
 ```
+yarn add react-native-webview
 yarn add @haskkor/react-native-recaptchav3
 ```
 
