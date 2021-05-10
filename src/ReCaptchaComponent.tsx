@@ -54,6 +54,7 @@ class ReCaptchaComponent extends React.PureComponent<IProps> {
           this._webViewRef = ref
         }}
         javaScriptEnabled
+        androidHardwareAccelerationDisabled
         originWhitelist={['*']}
         automaticallyAdjustContentInsets
         mixedContentMode={'always'}
