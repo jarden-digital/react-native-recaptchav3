@@ -25,13 +25,11 @@
     "@types/react-native": "^0.57.7",
     "react": "^16.6.2",
     "react-native": "^0.57.4",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "react-native-webview": "^11.4.3"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
-  },
-  "dependencies": {
-    "react-native-webview": "^9.0.1"
   }
 }
