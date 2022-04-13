@@ -48,12 +48,13 @@ class ReCaptchaComponent extends React.PureComponent<IProps> {
   }
 
   render() {
-    return <View style={{flex: 0.0001, width: 0, height: 0}}>
+    return <View style={{width: 1, height: 1, opacity: 0}}>
       <WebView
         ref={(ref) => {
           this._webViewRef = ref
         }}
         javaScriptEnabled
+        androidHardwareAccelerationDisabled
         originWhitelist={['*']}
         automaticallyAdjustContentInsets
         mixedContentMode={'always'}
