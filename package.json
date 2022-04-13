@@ -31,8 +31,5 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
-  },
-  "dependencies": {
-    "react-native-get-random-values": "^1.7.2"
   }
 }
