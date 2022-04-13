@@ -1,3 +1,4 @@
+import 'react-native-get-random-values';
 import {platform} from './constants'
 
 import * as React from 'react'
@@ -48,12 +49,11 @@ class ReCaptchaComponent extends React.PureComponent<IProps> {
   }
 
   render() {
-    return <View style={{overflow: 'hidden', width: 0, height: 0}}>
+    return <View style={{flex: 0.0001, width: 0, height: 0}}>
       <WebView
         ref={(ref) => {
           this._webViewRef = ref
         }}
-        style={{opacity: 0.99}}
         javaScriptEnabled
         androidHardwareAccelerationDisabled
         originWhitelist={['*']}
